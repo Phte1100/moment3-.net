@@ -270,6 +270,7 @@ G:\.NET\moment3\obj\Debug\net9.0\moment3.csproj.CoreCompileInputs.cache
 G:\.NET\moment3\obj\Debug\net9.0\moment3.MvcApplicationPartsAssemblyInfo.cache
 G:\.NET\moment3\obj\Debug\net9.0\moment3.RazorAssemblyInfo.cache
 G:\.NET\moment3\obj\Debug\net9.0\moment3.RazorAssemblyInfo.cs
+G:\.NET\moment3\obj\Debug\net9.0\moment3.sourcelink.json
 G:\.NET\moment3\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 G:\.NET\moment3\obj\Debug\net9.0\scopedcss\bundle\moment3.styles.css
 G:\.NET\moment3\obj\Debug\net9.0\scopedcss\projectbundle\moment3.bundle.scp.css

@@ -10,24 +10,22 @@ using BookDirectory.Models;
 
 namespace moment3.Controllers
 {
-    public class BookController : Controller
+    public class AuthorController : Controller
     {
         private readonly BookContext _context;
 
-        public BookController(BookContext context)
+        public AuthorController(BookContext context)
         {
             _context = context;
         }
 
-        // GET: Book
+        // GET: Author
         public async Task<IActionResult> Index()
         {
-            var books = _context.Books.Include(b => b.Author);
-            return View(await books.ToListAsync());
+            return View(await _context.Authors.ToListAsync());
         }
 
-
-        // GET: Book/Details/5
+        // GET: Author/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,51 +33,39 @@ namespace moment3.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books
-                .Include(b => b.Author)
+            var author = await _context.Authors
                 .FirstOrDefaultAsync(m => m.Id == id);
-            
-            if (book == null)
+            if (author == null)
             {
                 return NotFound();
             }
 
-            return View(book);
+            return View(author);
         }
 
-
-        // GET: Book/Create
+        // GET: Author/Create
         public IActionResult Create()
-{
-    ViewBag.Authors = new SelectList(_context.Authors, "Id", "AuthorName");
-    return View();
-}
+        {
+            return View();
+        }
 
-        // POST: Book/Create
+        // POST: Author/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,AuthorId,Isbn,Year")] Book book)
+        public async Task<IActionResult> Create([Bind("Id,AuthorName,Born")] Author author)
         {
-            if (book.AuthorId == 0) // Om ingen författare valts, stoppa sparning
-            {
-                ModelState.AddModelError("AuthorId", "Vänligen välj en författare.");
-            }
-
             if (ModelState.IsValid)
             {
-                _context.Add(book);
+                _context.Add(author);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-            // Återställ dropdown-listan om valideringen misslyckas
-            ViewBag.Authors = new SelectList(_context.Authors, "Id", "AuthorName", book.AuthorId);
-            return View(book);
+            return View(author);
         }
 
-        // GET: Book/Edit/5
+        // GET: Author/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,25 +73,22 @@ namespace moment3.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books.FindAsync(id);
-            if (book == null)
+            var author = await _context.Authors.FindAsync(id);
+            if (author == null)
             {
                 return NotFound();
             }
-
-            ViewBag.Authors = new SelectList(_context.Authors, "Id", "AuthorName", book.AuthorId);
-            return View(book);
+            return View(author);
         }
 
-
-        // POST: Book/Edit/5
+        // POST: Author/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,AuthorId,Year")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AuthorName,Born")] Author author)
         {
-            if (id != book.Id)
+            if (id != author.Id)
             {
                 return NotFound();
             }
@@ -114,12 +97,12 @@ namespace moment3.Controllers
             {
                 try
                 {
-                    _context.Update(book);
+                    _context.Update(author);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BookExists(book.Id))
+                    if (!AuthorExists(author.Id))
                     {
                         return NotFound();
                     }
@@ -130,12 +113,10 @@ namespace moment3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Authors = new SelectList(_context.Authors, "Id", "AuthorName", book.AuthorId);
-            return View(book);
+            return View(author);
         }
 
-
-        // GET: Book/Delete/5
+        // GET: Author/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -143,34 +124,34 @@ namespace moment3.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books
+            var author = await _context.Authors
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (book == null)
+            if (author == null)
             {
                 return NotFound();
             }
 
-            return View(book);
+            return View(author);
         }
 
-        // POST: Book/Delete/5
+        // POST: Author/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var book = await _context.Books.FindAsync(id);
-            if (book != null)
+            var author = await _context.Authors.FindAsync(id);
+            if (author != null)
             {
-                _context.Books.Remove(book);
+                _context.Authors.Remove(author);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BookExists(int id)
+        private bool AuthorExists(int id)
         {
-            return _context.Books.Any(e => e.Id == id);
+            return _context.Authors.Any(e => e.Id == id);
         }
     }
 }

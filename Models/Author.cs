@@ -1,14 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AuthorDirectory.Models
+namespace BookDirectory.Models
 {
     public class Author
     { 
-        // Properties
         public int Id { get; set; }
-        public required string AuthorName { get; set; } 
-        public int Born { get; set; }
 
+        public required string AuthorName { get; set; } 
+
+        public required int Born { get; set; }
+
+        // En författare kan ha flera böcker
         public List<Book> Books { get; set; } = new List<Book>();
     }
 }
