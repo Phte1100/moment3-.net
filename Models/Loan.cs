@@ -12,12 +12,12 @@ namespace BookDirectory.Models
         public int BookId { get; set; } // Främmande nyckel till Book
 
         [Required]
-        public int UserId { get; set; } // Främmande nyckel till User
+        public int UserId { get; set; } // FK
 
         [Required]
         public DateTime LoanDate { get; set; } = DateTime.Now; // Datum för utlåning
 
-        public DateTime? ReturnDate { get; set; } // Datum för återlämning, nullable
+        public DateTime? ReturnDate { get; set; } // Datum för återlämning
 
         // Navigeringsproperties
         public Book? Book { get; set; }

@@ -13,7 +13,7 @@ namespace BookDirectory.Models
 
         public required int Year { get; set; }
 
-        // Främmande nyckel för Author
+        // FK för Author
         public int AuthorId { get; set; }
 
         // Navigeringsproperty till Author

@@ -39,7 +39,7 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Author.AuthorName)
+                @(item.Author?.AuthorName ?? "Okänd författare")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Year)

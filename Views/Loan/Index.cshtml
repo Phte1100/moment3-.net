@@ -37,10 +37,10 @@
                 @Html.DisplayFor(modelItem => item.ReturnDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Book.Id)
+                @(item.Book != null ? item.Book.Id : "Ingen bok kopplad")
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Email)
+                @(item.User?.Email ?? "Ingen användare kopplad")
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
