@@ -18,5 +18,11 @@ namespace BookDirectory.Models
 
         // Navigeringsproperty till Author
         public Author? Author { get; set; }
+
+        // Är boken tillgänglig för lån?
+        public bool IsAvailable { get; set; } = true;
+
+        // En bok kan ha flera lån
+        public List<Loan> Loans { get; set; } = new List<Loan>();
     }
 }

@@ -19,5 +19,7 @@ namespace BookDirectory.Data
                 .WithMany(a => a.Books)
                 .HasForeignKey(b => b.AuthorId);
         }
+        public DbSet<BookDirectory.Models.User> User { get; set; } = default!;
+        public DbSet<BookDirectory.Models.Loan> Loan { get; set; } = default!;
     }
 }

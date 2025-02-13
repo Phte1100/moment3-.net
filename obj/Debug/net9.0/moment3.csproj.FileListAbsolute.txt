@@ -274,9 +274,7 @@ G:\.NET\moment3\obj\Debug\net9.0\moment3.sourcelink.json
 G:\.NET\moment3\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 G:\.NET\moment3\obj\Debug\net9.0\scopedcss\bundle\moment3.styles.css
 G:\.NET\moment3\obj\Debug\net9.0\scopedcss\projectbundle\moment3.bundle.scp.css
-G:\.NET\moment3\obj\Debug\net9.0\compressed\5nwjgab71d-b9sayid5wm.gz
 G:\.NET\moment3\obj\Debug\net9.0\compressed\ewvgz3zjyc-61n19gt1b8.gz
-G:\.NET\moment3\obj\Debug\net9.0\compressed\ederaakodc-xtxxf3hu2r.gz
 G:\.NET\moment3\obj\Debug\net9.0\compressed\kwtygx2fol-bqjiyaj88i.gz
 G:\.NET\moment3\obj\Debug\net9.0\compressed\xc4jf30va0-c2jlpeoesf.gz
 G:\.NET\moment3\obj\Debug\net9.0\compressed\uxylclvqp3-erw9l3u2r3.gz
@@ -353,3 +351,5 @@ G:\.NET\moment3\obj\Debug\net9.0\refint\moment3.dll
 G:\.NET\moment3\obj\Debug\net9.0\moment3.pdb
 G:\.NET\moment3\obj\Debug\net9.0\moment3.genruntimeconfig.cache
 G:\.NET\moment3\obj\Debug\net9.0\ref\moment3.dll
+G:\.NET\moment3\obj\Debug\net9.0\compressed\ederaakodc-aabzrkq183.gz
+G:\.NET\moment3\obj\Debug\net9.0\compressed\5nwjgab71d-5fe0x2wl1f.gz
